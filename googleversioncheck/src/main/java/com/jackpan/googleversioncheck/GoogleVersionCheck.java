@@ -14,7 +14,7 @@ public class GoogleVersionCheck  implements  RequestResponseListener{
     private RequestHandler requestHandler;
     private DoneListener  doneListener;
 
-    public    String packageName;
+    public  String packageName;
 
     public GoogleVersionCheck(Context context)
     {
@@ -42,9 +42,9 @@ public class GoogleVersionCheck  implements  RequestResponseListener{
         checker.check(listener);
     }
 
-    public static Intent openMartketIntent()
+    public  Intent openMartketIntent()
     {
-        return new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
+        return new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName));
     }
 
     public void compareVersion(String html)
