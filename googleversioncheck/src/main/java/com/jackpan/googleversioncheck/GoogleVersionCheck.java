@@ -13,6 +13,7 @@ public class GoogleVersionCheck  implements  RequestResponseListener{
     private Context context;
     private RequestHandler requestHandler;
     private DoneListener  doneListener;
+    private static String url;
 
     public  String packageName;
 
@@ -31,9 +32,12 @@ public class GoogleVersionCheck  implements  RequestResponseListener{
 
         String host = "https://play.google.com/store/apps/details?id=%s";
 
+
         ApiSetting setting = new ApiSetting(String.format(host, packageName), HttpMethod.GET, 111111);
 
         requestHandler.sendRequest(setting, this);
+
+        this.url = String.format(host, packageName);
     }
 
     public static void checkOnce(Context context, DoneListener listener)
@@ -184,5 +188,12 @@ public class GoogleVersionCheck  implements  RequestResponseListener{
         public void onConnectionFailed() {
 
         }
+    }
+
+    /**
+     * 檢查 網址是否正確
+     */
+    public static String getUrl(){
+        return url;
     }
 }
