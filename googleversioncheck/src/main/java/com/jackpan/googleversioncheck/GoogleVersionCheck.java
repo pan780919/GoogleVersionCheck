@@ -182,6 +182,9 @@ public class GoogleVersionCheck  implements  RequestResponseListener {
     public static String getUrl() {
         return url;
     }
+    /**
+     * 檢查 是否有google service
+     */
     public static  boolean checkGoogleService(Context context,GoogleServiceResponse googleServiceResponse){
         GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
         int result = googleAPI.isGooglePlayServicesAvailable(context);
